@@ -8,15 +8,23 @@ struct tCircuito {
     float resistencia1;
     float resistencia2;
     int tensao;
-    float rserie, rparalelo, corrente, potencia;
-    
+};
 
+//Estrutura que realiza os cálculos e imprime o resultado
+struct iResultado {
+    float rserie, rparalelo, corrente, potencia;
+    tCircuito entrada;
+    
     //Funcao para calcular os parametros
-     void calculos() {
-        rserie = resistencia1 + resistencia2;
-        rparalelo = (resistencia1 * resistencia2)/(resistencia1 + resistencia2);
-        corrente = tensao / rserie;
-        potencia = corrente * tensao;
+    void calculos(tCircuito entrada) {
+        float r1 = entrada.resistencia1;
+        float r2 = entrada.resistencia2;
+        int v = entrada.tensao; 
+    
+        rserie = r1 + r2;
+        rparalelo = (r1 * r2)/(r1 + r2);
+        corrente = v / rserie;
+        potencia = corrente * v;
         imprimir();
     }
 
@@ -27,11 +35,6 @@ struct tCircuito {
         cout << "Resistência em série:    " << rserie << " Ω."<< endl;
         cout << "Resistência em paralelo: " << rparalelo << " Ω."<< endl;
         cout << "Corrente total em série: " << corrente << " A."<< endl;
-        cout << "Potência na fonte:       " << potencia <<"  W" << endl;
+        cout << "Potência na fonte:       " << potencia <<" W" << endl;
     }
-
-
-
-
-
 };
