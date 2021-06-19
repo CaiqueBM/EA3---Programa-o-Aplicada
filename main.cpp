@@ -4,11 +4,15 @@
 using namespace std;
 
 int main() {
-    //Receber os valores
+    //Receber os valores pelo usuário
     tCircuito valor;
-    valor.resistencia1 = 10;
-    valor.resistencia2 = 20;
-    valor.tensao = 10;
+
+    cout << "Resistência 1: " << endl;
+    cin >> valor.resistencia1;
+    cout << "Resistência 2: " << endl;
+    cin >> valor.resistencia2;
+    cout << "Fonte de tensão: " << endl;
+    cin >> valor.tensao;
+
     valor.calculos();
-    
 }
